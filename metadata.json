@@ -1,0 +1,6 @@
+{
+  "name": "KhmerJobs",
+  "description": "Premium job portal for Cambodia. Connecting top talent with dream careers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["Real-time Notifications", "Job Discovery"]
+}
