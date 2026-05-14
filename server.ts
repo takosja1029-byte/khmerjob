@@ -698,10 +698,7 @@ async function startServer() {
       next();
     });
   }, async (req: any, res) => {
-    if (!req.user) {
-      return res.status(401).json({ error: 'Please sign in to apply for this job' });
-    }
-
+  
     const { id } = req.params;
     const { fullName, email } = req.body;
     const cvFile = req.file;
