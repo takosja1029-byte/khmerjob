@@ -72,10 +72,7 @@ export default function JobDetails({ job, onClose, user, onOpenAuth, isSaved, on
   if (!job) return null;
 
   const handleApply = async () => {
-    if (!user) {
-      onOpenAuth();
-      return;
-    }
+ 
 
     if (!fullName || !email || !cvFile) {
       setError('Please fill in all fields and upload your CV (PDF) before applying.');
