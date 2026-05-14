@@ -703,7 +703,9 @@ async function startServer() {
     const { id } = req.params;
     const { fullName, email } = req.body;
     const cvFile = req.file;
-    const jobDoc = await admin.firestore().collection('jobs').doc(id).get();
+    const firestore = admin.app().firestore();
+firestore.settings({ databaseId: firebaseConfig.firestoreDatabaseId });
+const jobDoc = await firestore.collection('jobs').doc(id).get();
 if (!jobDoc.exists) {
   return res.status(404).json({ error: 'Job not found' });
 }
