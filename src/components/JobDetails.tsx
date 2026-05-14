@@ -467,7 +467,7 @@ export default function JobDetails({ job, onClose, user, onOpenAuth, isSaved, on
                 ) : (
                   <Send className="w-5 h-5" />
                 )}
-                {!user 
+                {false
                   ? 'Sign in to Apply' 
                   : showApplyForm 
                     ? 'Send Application' 
