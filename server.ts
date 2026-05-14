@@ -10,9 +10,7 @@ import multer from 'multer';
 import FormData from 'form-data';
 import nodemailer from 'nodemailer';
 import admin from 'firebase-admin';
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-const firebaseConfig = require('./firebase-applet-config.json');
+import firebaseConfig from './firebase-applet-config.json' assert { type: 'json' };
 
 dotenv.config();
 
