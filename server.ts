@@ -17,6 +17,7 @@ dotenv.config();
 // Initialize Firebase Admin
 if (!admin.apps.length) {
   admin.initializeApp({
+    credential: admin.credential.cert('/etc/secrets/service-account.json'),
     projectId: firebaseConfig.projectId,
   });
 }
