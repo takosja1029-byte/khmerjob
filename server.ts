@@ -688,7 +688,7 @@ async function startServer() {
     res.status(201).json(newJob);
   });
 
-  app.post('/api/jobs/:id/apply', authenticate, (req: any, res: any, next: any) => {
+  app.post('/api/jobs/:id/apply', (req: any, res: any, next: any) => {
     upload.single('cv')(req, res, (err) => {
       if (err instanceof multer.MulterError) {
         return res.status(400).json({ error: `Upload error: ${err.message}` });
