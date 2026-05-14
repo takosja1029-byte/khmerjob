@@ -702,12 +702,12 @@ async function startServer() {
     const { id } = req.params;
     const { fullName, email } = req.body;
     const cvFile = req.file;
-    const job = jobs.find(j => j.id === id);
+    const jobDoc = await admin.firestore().collection('jobs').doc(id).get();
+if (!jobDoc.exists) {
+  return res.status(404).json({ error: 'Job not found' });
+}
+const job = { id: jobDoc.id, ...jobDoc.data() };
     console.log(`[Apply] Processing application for job: ${job?.title} from ${fullName}`);
-
-    if (!job) {
-      return res.status(404).json({ error: 'Job not found' });
-    }
 
     if (!fullName || !email) {
       return res.status(400).json({ error: 'Full Name and Email are required.' });
